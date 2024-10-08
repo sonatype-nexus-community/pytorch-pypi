@@ -1,4 +1,4 @@
-# YOUR PROJECT NAME HERE
+# Sonatype PyTorch PyPI Improved Mirror
 
 <!-- Badges Section -->
 [![shield_gh-workflow-test]][link_gh-workflow-test]
@@ -9,9 +9,10 @@
 
 Introduce your project here. A short summary about what its purpose and scope is.
 
-- [Usage](#usage)
-- [Development](#development)
-- [The Fine Print](#the-fine-print)
+- [Sonatype PyTorch PyPI Improved Mirror](#sonatype-pytorch-pypi-improved-mirror)
+  - [Usage](#usage)
+  - [Development](#development)
+  - [The Fine Print](#the-fine-print)
 
 ## Usage
 
