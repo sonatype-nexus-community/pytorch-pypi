@@ -1,5 +1,8 @@
 #!/bin/bash
 
+[ -d gh-pages ] || git clone -q --branch gh-pages $(git config --get remote.origin.url) gh-pages
+cd gh-pages
+
 # update a PyPI index from PyTorch = https://download.pytorch.org/$d with d=whl or whl/<compute platform>
 # this copies the content (main url + follows links to projects) and does 2 updates:
 # 1. copies the content in a "simple/" sub-directory to match the convention from PEP 503 simple (that allows other APIs in parallel)
