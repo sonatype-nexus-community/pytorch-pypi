@@ -23,7 +23,7 @@ do
   i=0
   for p in `cat index.html | cut -d '>' -f 2 | cut -d '<' -f 1`
   do
-    mkdir $p
+    mkdir -p $p
     cd $p
     ((i++))
     curl -s https://download.pytorch.org/$d/$p/ \
