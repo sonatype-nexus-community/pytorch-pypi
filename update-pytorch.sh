@@ -55,6 +55,17 @@ function checkCount() {
 # update main PyTorch index, that contains everything, whatever the compute platform
 updateIndex "whl"
 
+# see resulting updates
+git update-index -q --refresh
+git diff-index --name-status HEAD
+
+if `git diff-index --quiet HEAD`
+then
+  echo "no update found in PyTorch main index."
+  exit 0
+fi
+echo "updates found in PyTorch main index: updating also compute platform specific ones..."
+
 # update compute-platform specific indexes
 # ignore old non-updated ones:
 # - cu75 cu80 cu90 cu91 cu92 cu100 cu101 cu102 cu110 cu111 cu113 cu115 cu116 cu117 cu117_pypi_cudnn
