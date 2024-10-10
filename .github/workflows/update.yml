@@ -11,9 +11,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
         with:
           ref: 'gh-pages'
+          path: 'gh-pages'
 
       - name: Update Reports
         run: ./update-pytorch.sh
@@ -22,6 +27,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          cd gh-pages
           git diff-index --quiet HEAD && exit 0 # commit only if something to do
           git config --local user.email "ci@github.io"
           git config --local user.name "Update CI"
