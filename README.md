@@ -7,21 +7,38 @@
 
 ---
 
-Introduce your project here. A short summary about what its purpose and scope is.
+This project provides a PyTorch Python index mirror that adds necessary strict PEP 503 format requirements permitting to use it with [Nexus Repository](https://help.sonatype.com/en/pypi-repositories.html#download--search--and-install-packages-using-pip).
 
 - [Sonatype PyTorch PyPI Improved Mirror](#sonatype-pytorch-pypi-improved-mirror)
   - [Usage](#usage)
+    - [Installation](#installation)
+    - [Access With `pip`](#access-with-pip)
   - [Development](#development)
   - [The Fine Print](#the-fine-print)
 
 ## Usage
 
-Use this section (and any additional sub-sections) to explain how to use this project.
+### Installation
 
-Include:
-- Installation
-- Configuration
-- Execution
+As a [Nexus Repository](https://help.sonatype.com/en/sonatype-nexus-repository.html) admin, configure a [new PyPI proxy](https://help.sonatype.com/en/pypi-repositories.html#proxying-pypi-repositories) repository:
+- define name: `pypi-pytorch` for example
+- define URL for remote storage: `https://sonatype-nexus-community.github.io/pytorch-pypi/whl/`
+
+You can also create compute platform specific proxies if necessary, like `pypi-pytorch-cu124` pointing to `https://sonatype-nexus-community.github.io/pytorch-pypi/whl/cu124/`
+
+These PyPI proxies can also be added to your `pypi-all` group repository if you created one.
+
+### Access With `pip`
+
+Newly created PyPI proxies can now be used with `pip` using provided `--index-url`, like:
+
+```
+pip3 install pytorch+cu124 --index-url http://localhost:8081/repository/pypi-pytorch/simple
+```
+or
+```
+pip3 install pytorch --index-url http://localhost:8081/repository/pypi-pytorch-cu124/simple
+```
 
 ## Development
 
