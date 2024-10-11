@@ -28,6 +28,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd gh-pages
+          git update-index -q --refresh
           git diff-index --quiet HEAD && exit 0 # commit only if something to do
           git config --local user.email "ci@github.io"
           git config --local user.name "Update CI"
