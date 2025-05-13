@@ -33,5 +33,5 @@ jobs:
           git config --local user.email "ci@github.io"
           git config --local user.name "Update CI"
           git add -A
-          git commit -m "nightly update"
+          git commit -m "nightly update $(date '+%Y-%m-%d')"
           git push
