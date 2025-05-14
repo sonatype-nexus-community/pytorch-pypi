@@ -115,13 +115,30 @@ then
 fi
 echo "updates found in PyTorch main index: updating also compute platform specific ones..."
 
-# update compute-platform specific indexes
-# ignore old non-updated ones:
-# - cu75 cu80 cu90 cu91 cu92 cu100 cu101 cu102 cu110 cu111 cu113 cu115 cu116 cu117 cu117_pypi_cudnn
-# - rocm3.10 rocm3.7 rocm3.8 rocm4.0.1 rocm4.1 rocm4.2 rocm4.3.1 rocm4.5.2 rocm5.0 rocm5.1.1 rocm5.2 rocm5.3 rocm5.4.2 rocm5.5 rocm5.6 rocm5.7
-for d in cpu cpu-cxx11-abi cpu_pypi_pkg cu118 cu121 cu124 cu126 cu128 rocm6.0 rocm6.1 rocm6.2 rocm6.2.4 rocm6.3 xpu
-do
-  updateIndex "whl/$d"
+# get stable platforms from https://download.pytorch.org/whl/torch_stable.html
+mapfile -t stable_platforms < <(curl -s https://download.pytorch.org/whl/torch_stable.html | \
+  grep -o 'href="[^"]*/[^"]*"' | \
+  sed 's|href="||;s|".*||' | \
+  grep '/' | \
+  cut -d'/' -f1 | \
+  sort -u)
+
+declare -A stable_platform_map
+for plat in "${stable_platforms[@]}"; do
+  stable_platform_map["$plat"]=1
+done
+
+# get all platforms from https://download.pytorch.org/whl/torch/
+mapfile -t all_platforms < <(curl -s https://download.pytorch.org/whl/torch/ | \
+  grep -o '/whl/[a-zA-Z0-9_.-]*/' | \
+  sed 's|^/whl/||;s|/.*$||' | \
+  sort -u)
+
+# update compute-platform specific indexes: see current "Compute Platforms" on https://pytorch.org/
+for d in "${all_platforms[@]}"; do
+  if [[ -z ${stable_platform_map["$d"]} ]]; then
+    updateIndex "whl/$d"
+  fi
 done
 updateHumanIndexes
 
