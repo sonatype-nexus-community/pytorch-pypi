@@ -26,6 +26,8 @@ As a [Nexus Repository](https://help.sonatype.com/en/sonatype-nexus-repository.h
 
 You can also create compute platform specific proxies if necessary, like `pypi-pytorch-cu124` pointing to `https://sonatype-nexus-community.github.io/pytorch-pypi/whl/cu124/`
 
+For nightly versions, simply create a `pypi-pytorch-nightly` repository pointing to `https://sonatype-nexus-community.github.io/pytorch-pypi/whl/nightly/`
+
 These PyPI proxies can also be added to your `pypi-all` group repository if you created one.
 
 ### Access With `pip`
@@ -38,6 +40,10 @@ pip3 install pytorch+cu124 --index-url http://localhost:8081/repository/pypi-pyt
 or
 ```
 pip3 install pytorch --index-url http://localhost:8081/repository/pypi-pytorch-cu124/simple
+```
+for nightly
+```
+pip3 install pytorch --index-url http://localhost:8081/repository/pypi-pytorch-nightly/simple
 ```
 
 ## Development
