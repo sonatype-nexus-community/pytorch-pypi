@@ -104,7 +104,7 @@ EOF
 updateIndex "whl"
 updateIndex "whl/nightly"
 
-# see resulting updates  
+# see resulting updates
 git update-index -q --refresh
 git diff-index --name-status HEAD
 
