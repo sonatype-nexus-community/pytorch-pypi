@@ -42,5 +42,5 @@
 69 whl/rocm6.1/simple
 69 whl/rocm6.2.4/simple
 67 whl/rocm6.2/simple
-68 whl/rocm6.3/simple
+69 whl/rocm6.3/simple
 84 whl/xpu/simple
