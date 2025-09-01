@@ -24,7 +24,9 @@ As a [Nexus Repository](https://help.sonatype.com/en/sonatype-nexus-repository.h
 - define name: `pypi-pytorch` for example
 - define URL for remote storage: `https://sonatype-nexus-community.github.io/pytorch-pypi/whl/`
 
-You can also create compute platform specific proxies if necessary, like `pypi-pytorch-cu124` pointing to `https://sonatype-nexus-community.github.io/pytorch-pypi/whl/cu124/`
+You can also create compute platform specific proxies if necessary, like `pypi-pytorch-cu129` pointing to `https://sonatype-nexus-community.github.io/pytorch-pypi/whl/cu129/`
+
+For nightly versions, simply create a `pypi-pytorch-nightly` repository pointing to `https://sonatype-nexus-community.github.io/pytorch-pypi/whl/nightly/`
 
 These PyPI proxies can also be added to your `pypi-all` group repository if you created one.
 
@@ -33,11 +35,19 @@ These PyPI proxies can also be added to your `pypi-all` group repository if you 
 Newly created PyPI proxies can now be used with `pip` using provided `--index-url`, like:
 
 ```
-pip3 install pytorch+cu124 --index-url http://localhost:8081/repository/pypi-pytorch/simple
+pip3 install torch==2.8.0+cu129 --index-url http://localhost:8081/repository/pypi-pytorch/simple
 ```
 or
 ```
-pip3 install pytorch --index-url http://localhost:8081/repository/pypi-pytorch-cu124/simple
+pip3 install torch --index-url http://localhost:8081/repository/pypi-pytorch-cu129/simple
+```
+for nightly
+```
+pip3 install torch --index-url http://localhost:8081/repository/pypi-pytorch-nightly/simple
+
+or
+
+pip3 install torch==2.8.0.dev20250613+cu129 http://localhost:8081/repository/pypi-pytorch-nightly/simple
 ```
 
 ## Development
