@@ -17,11 +17,13 @@
 72 whl/cu124/simple
 74 whl/cu126/simple
 74 whl/cu128/simple
+71 whl/cu129/simple
 42 whl/cu75/simple
 43 whl/cu80/simple
 42 whl/cu90/simple
 42 whl/cu91/simple
 43 whl/cu92/simple
+160 whl/nightly/simple
 42 whl/rocm3.10/simple
 42 whl/rocm3.7/simple
 42 whl/rocm3.8/simple
@@ -43,4 +45,5 @@
 69 whl/rocm6.2.4/simple
 67 whl/rocm6.2/simple
 69 whl/rocm6.3/simple
+69 whl/rocm6.4/simple
 84 whl/xpu/simple
