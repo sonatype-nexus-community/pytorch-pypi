@@ -17,7 +17,7 @@
 101 whl/cu124/simple
 104 whl/cu126/simple
 105 whl/cu128/simple
-101 whl/cu129/simple
+102 whl/cu129/simple
 116 whl/cu130/simple
 42 whl/cu75/simple
 43 whl/cu80/simple
