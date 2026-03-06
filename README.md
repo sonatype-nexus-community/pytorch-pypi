@@ -7,7 +7,7 @@
 
 ---
 
-This project provides a PyTorch Python index mirror that adds necessary strict PEP 503 format requirements permitting to use it with [Nexus Repository](https://help.sonatype.com/en/pypi-repositories.html#download--search--and-install-packages-using-pip).
+This project provides a [PyTorch](https://pytorch.org/get-started/locally/) Python index mirror that adds necessary strict PEP 503 format requirements permitting to use it with [Nexus Repository](https://help.sonatype.com/en/pypi-repositories.html#download--search--and-install-packages-using-pip).
 
 - [Sonatype PyTorch PyPI Improved Mirror](#sonatype-pytorch-pypi-improved-mirror)
   - [Usage](#usage)
