@@ -1,5 +1,13 @@
 # Sonatype PyTorch PyPI Improved Mirror
 
+> **⚠️ DEPRECATED**
+>
+> This project is now deprecated and has been replaced by native functionality in Nexus Repository Manager 3.91+ (see [NEXUS-29440](https://help.sonatype.com/en/sonatype-nexus-repository-3-91-0-release-notes.html#npm-and-pypi-fixes)).
+>
+> Nexus Repository 3.91 and later versions include built-in support for PyTorch PyPI repositories without requiring this mirror. Please refer to the [Nexus Repository PyPI documentation](https://help.sonatype.com/en/create-a-pypi-repository.html) for details on configuring PyPI proxy repositories, particularly the "Remote Index Path" field.
+>
+> This project will no longer be actively maintained.
+
 <!-- Badges Section -->
 [![shield_gh-workflow-test]][link_gh-workflow-test]
 [![shield_license]][license_file]
